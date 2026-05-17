@@ -14,16 +14,12 @@
       --border:   #1e2540;
       --accent:   #00f0ff;
       --accent2:  #ff2d78;
-      --accent3:  #7c3aed;
       --text:     #e8eaf6;
       --muted:    #5c6490;
       --glow:     0 0 20px rgba(0,240,255,.35);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -31,22 +27,12 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* ── scanline overlay ── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,.08) 2px,
-        rgba(0,0,0,.08) 4px
-      );
+      background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);
       pointer-events: none;
     }
-
-    /* ── HEADER ── */
     header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(10,12,18,.92);
@@ -56,7 +42,6 @@
       height: 64px;
       display: flex; align-items: center; gap: 1.5rem;
     }
-
     .logo {
       font-family: 'Orbitron', monospace;
       font-weight: 900;
@@ -68,16 +53,8 @@
       flex-shrink: 0;
     }
     .logo span { color: var(--accent2); }
-
-    .search-wrap {
-      flex: 1;
-      max-width: 480px;
-      position: relative;
-    }
-    .search-wrap svg {
-      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-      color: var(--muted); width: 16px; height: 16px;
-    }
+    .search-wrap { flex: 1; max-width: 480px; position: relative; }
+    .search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); width: 16px; height: 16px; }
     #search {
       width: 100%;
       background: var(--surface);
@@ -90,16 +67,9 @@
       outline: none;
       transition: border-color .2s, box-shadow .2s;
     }
-    #search:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0,240,255,.12);
-    }
+    #search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,240,255,.12); }
     #search::placeholder { color: var(--muted); }
-
-    .tag-bar {
-      display: flex; gap: .5rem; flex-wrap: wrap;
-      margin-left: auto;
-    }
+    .tag-bar { display: flex; gap: .5rem; flex-wrap: wrap; margin-left: auto; }
     .tag {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -114,19 +84,8 @@
       cursor: pointer;
       transition: all .2s;
     }
-    .tag:hover, .tag.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(0,240,255,.06);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      padding: 4rem 2rem 2.5rem;
-      text-align: center;
-      overflow: hidden;
-    }
+    .tag:hover, .tag.active { border-color: var(--accent); color: var(--accent); background: rgba(0,240,255,.06); }
+    .hero { position: relative; padding: 4rem 2rem 2.5rem; text-align: center; overflow: hidden; }
     .hero-bg {
       position: absolute; inset: 0;
       background:
@@ -134,44 +93,15 @@
         radial-gradient(ellipse 40% 40% at 80% 60%, rgba(255,45,120,.08) 0%, transparent 60%);
       pointer-events: none;
     }
-    .hero h1 {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      font-weight: 900;
-      letter-spacing: .04em;
-      line-height: 1.1;
-      position: relative;
-    }
+    .hero h1 { font-family: 'Orbitron', monospace; font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: .04em; line-height: 1.1; position: relative; }
     .hero h1 .hl { color: var(--accent); text-shadow: var(--glow); }
     .hero h1 .hl2 { color: var(--accent2); }
-    .hero p {
-      margin-top: .75rem;
-      color: var(--muted);
-      font-size: 1.1rem;
-      font-weight: 400;
-      letter-spacing: .04em;
-      position: relative;
-    }
-    .hero-stats {
-      display: flex; gap: 2rem; justify-content: center;
-      margin-top: 1.5rem;
-      position: relative;
-    }
+    .hero p { margin-top: .75rem; color: var(--muted); font-size: 1.1rem; letter-spacing: .04em; position: relative; }
+    .hero-stats { display: flex; gap: 2rem; justify-content: center; margin-top: 1.5rem; position: relative; }
     .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Orbitron', monospace;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
+    .stat-num { font-family: 'Orbitron', monospace; font-size: 1.4rem; font-weight: 700; color: var(--accent); }
     .stat-label { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
-
-    /* ── GRID ── */
-    .catalog {
-      padding: 1.5rem 2rem 4rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    .catalog { padding: 1.5rem 2rem 4rem; max-width: 1400px; margin: 0 auto; }
     .section-label {
       font-family: 'Orbitron', monospace;
       font-size: .75rem;
@@ -181,19 +111,8 @@
       margin-bottom: 1.2rem;
       display: flex; align-items: center; gap: .75rem;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 1.1rem;
-    }
-
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.1rem; }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -203,18 +122,11 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: transform .22s cubic-bezier(.34,1.56,.64,1),
-                  border-color .22s,
-                  box-shadow .22s;
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1), border-color .22s, box-shadow .22s;
       position: relative;
     }
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color: var(--accent);
-      box-shadow: 0 8px 32px rgba(0,240,255,.18), 0 0 0 1px var(--accent);
-    }
+    .card:hover { transform: translateY(-5px) scale(1.02); border-color: var(--accent); box-shadow: 0 8px 32px rgba(0,240,255,.18), 0 0 0 1px var(--accent); }
     .card:hover .card-overlay { opacity: 1; }
-
     .card-thumb {
       width: 100%;
       aspect-ratio: 16/10;
@@ -222,99 +134,39 @@
       display: block;
       background: var(--surface);
     }
-    /* placeholder gradient for cards without real images */
-    .card-thumb-placeholder {
-      width: 100%;
-      aspect-ratio: 16/10;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem;
-    }
-
     .card-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(0,240,255,.07);
+      top: 0; left: 0; right: 0;
+      aspect-ratio: 16/10;
+      background: rgba(0,0,0,.45);
       opacity: 0;
       transition: opacity .2s;
       display: flex; align-items: center; justify-content: center;
     }
-    .card-overlay svg {
-      width: 44px; height: 44px;
-      color: var(--accent);
-      filter: drop-shadow(0 0 8px var(--accent));
-    }
-
-    .card-body {
-      padding: .7rem .9rem .8rem;
-    }
-    .card-title {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: .02em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .card-meta {
-      display: flex; align-items: center; gap: .5rem;
-      margin-top: .3rem;
-    }
-    .card-tag {
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .card-plays {
-      font-size: .72rem;
-      color: var(--accent2);
-      font-weight: 600;
-      margin-left: auto;
-    }
-    .dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: #22c55e;
-      flex-shrink: 0;
-    }
-
-    /* ── EMPTY STATE ── */
-    #empty {
-      display: none;
-      text-align: center;
-      padding: 5rem 2rem;
-      color: var(--muted);
-    }
+    .card-overlay svg { width: 48px; height: 48px; color: #fff; filter: drop-shadow(0 0 10px var(--accent)); }
+    .card-body { padding: .7rem .9rem .8rem; }
+    .card-title { font-weight: 700; font-size: 1rem; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card-meta { display: flex; align-items: center; gap: .5rem; margin-top: .3rem; }
+    .card-tag { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .card-plays { font-size: .72rem; color: var(--accent2); font-weight: 600; margin-left: auto; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; flex-shrink: 0; }
+    #empty { display: none; text-align: center; padding: 5rem 2rem; color: var(--muted); }
     #empty .big { font-size: 3rem; }
     #empty p { margin-top: .5rem; font-size: 1rem; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 1.5rem;
-      color: var(--muted);
-      font-size: .8rem;
-      letter-spacing: .06em;
-    }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 1.5rem; color: var(--muted); font-size: .8rem; letter-spacing: .06em; }
     footer span { color: var(--accent); }
   </style>
 </head>
 <body>
 
-<!-- ── HEADER ── -->
 <header>
   <div class="logo">Eli's <span>UnbI0cked</span></div>
-
   <div class="search-wrap">
     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
     </svg>
     <input id="search" type="text" placeholder="Search games…" autocomplete="off"/>
   </div>
-
   <div class="tag-bar">
     <button class="tag active" data-filter="all">All</button>
     <button class="tag" data-filter="action">Action</button>
@@ -325,7 +177,6 @@
   </div>
 </header>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <h1><span class="hl">Eli's</span> <span class="hl2">UnbI0cked</span></h1>
@@ -337,7 +188,6 @@
   </div>
 </section>
 
-<!-- ── CATALOG ── -->
 <main class="catalog">
   <div class="section-label">Game Library</div>
   <div class="grid" id="grid"></div>
@@ -352,137 +202,54 @@
 </footer>
 
 <script>
-  /* ─────────────────────────────────────────────
-     GAME CATALOG DATA
-     To add a game:
-       1. Add an entry below
-       2. Create the corresponding file (e.g. 5.html) in the same folder
-         – that file should contain the actual game embed
-     ───────────────────────────────────────────── */
+  /*
+    GAME CATALOG DATA
+    ─────────────────
+    Each game needs two files in the repo:
+      N.html  — the game itself
+      N.png   — thumbnail image (recommended: 480×300 px, any 16:10 crop works too)
+
+    To add a game, append an object here and drop the two files in the repo.
+  */
   const GAMES = [
-    {
-      id: 1,
-      title: "Bad Parenting 1",
-      tag: "action",
-      plays: "876.1k",
-      emoji: "👦",
-      gradient: "linear-gradient(135deg,#2d4a1e,#1a3a0a)",
-      file: "1.html"
-    },
-    {
-      id: 2,
-      title: "OVO",
-      tag: "other",
-      plays: "4.1m",
-      emoji: "⭕",
-      gradient: "linear-gradient(135deg,#1a1a2e,#16213e)",
-      file: "2.html"
-    },
-    {
-      id: 3,
-      title: "Paper.io 2",
-      tag: "other",
-      plays: "2.2m",
-      emoji: "📃",
-      gradient: "linear-gradient(135deg,#4a3728,#2d5a1b)",
-      file: "3.html"
-    },
-    {
-      id: 4,
-      title: "2048",
-      tag: "other",
-      plays: "405.0k",
-      emoji: "🔢",
-      gradient: "linear-gradient(135deg,#0d0d1a,#1a0a2e)",
-      file: "4.html"
-    },
-    {
-      id: 5,
-      title: "NOT OUT",
-      tag: "horror",
-      plays: "397.4k",
-      emoji: "🍕",
-      gradient: "linear-gradient(135deg,#2e1a0a,#1a0a0a)",
-      file: "5.html"
-    },
-    {
-      id: 6,
-      title: "NOT OUT",
-      tag: "sandbox",
-      plays: "1.2m",
-      emoji: "🧍",
-      gradient: "linear-gradient(135deg,#1a1a1a,#2d2d2d)",
-      file: "6.html"
-    },
-    {
-      id: 7,
-      title: "NOT OUT",
-      tag: "horror",
-      plays: "488.0k",
-      emoji: "😂",
-      gradient: "linear-gradient(135deg,#2e2a0a,#1a1500)",
-      file: "7.html"
-    },
-    {
-      id: 8,
-      title: "NOT OUT",
-      tag: "shooter",
-      plays: "987.0k",
-      emoji: "🔫",
-      gradient: "linear-gradient(135deg,#2e0a0a,#1a0000)",
-      file: "8.html"
-    },
-    {
-      id: 9,
-      title: "NOT OUT",
-      tag: "horror",
-      plays: "1.4m",
-      emoji: "🎰",
-      gradient: "linear-gradient(135deg,#0a0a0a,#1a1010)",
-      file: "9.html"
-    },
-    {
-      id: 10,
-      title: "NOT OUT",
-      tag: "horror",
-      plays: "515.5k",
-      emoji: "🖋️",
-      gradient: "linear-gradient(135deg,#1a1400,#0d0d00)",
-      file: "10.html"
-    },
-    {
-      id: 11,
-      title: "NOT OUT",
-      tag: "horror",
-      plays: "1.3m",
-      emoji: "👁️",
-      gradient: "linear-gradient(135deg,#1a0a0a,#2e1a10)",
-      file: "11.html"
-    },
+    { id: 1,  title: "Bad Parenting 1", tag: "action",  plays: "876.1k" },
+    { id: 2,  title: "OVO",             tag: "other",   plays: "4.1m"   },
+    { id: 3,  title: "Paper.io 2",      tag: "other",   plays: "2.2m"   },
+    { id: 4,  title: "2048",            tag: "other",   plays: "405.0k" },
+    { id: 5,  title: "NOT OUT",         tag: "horror",  plays: "397.4k" },
+    { id: 6,  title: "NOT OUT",         tag: "sandbox", plays: "1.2m"   },
+    { id: 7,  title: "NOT OUT",         tag: "horror",  plays: "488.0k" },
+    { id: 8,  title: "NOT OUT",         tag: "shooter", plays: "987.0k" },
+    { id: 9,  title: "NOT OUT",         tag: "horror",  plays: "1.4m"   },
+    { id: 10, title: "NOT OUT",         tag: "horror",  plays: "515.5k" },
+    { id: 11, title: "NOT OUT",         tag: "horror",  plays: "1.3m"   },
   ];
 
-  const grid    = document.getElementById('grid');
-  const empty   = document.getElementById('empty');
-  const search  = document.getElementById('search');
-  const tags    = document.querySelectorAll('.tag');
-  const total   = document.getElementById('totalGames');
+  const grid   = document.getElementById('grid');
+  const empty  = document.getElementById('empty');
+  const search = document.getElementById('search');
+  const tags   = document.querySelectorAll('.tag');
+  const total  = document.getElementById('totalGames');
 
   total.textContent = GAMES.length;
-
   let activeFilter = 'all';
 
   function buildCard(g) {
     const a = document.createElement('a');
     a.className = 'card';
-    a.href = `viewer.html?game=${encodeURIComponent(g.file)}&title=${encodeURIComponent(g.title)}`;
+    a.href = `viewer.html?game=${encodeURIComponent(g.id + '.html')}&title=${encodeURIComponent(g.title)}`;
     a.dataset.title = g.title.toLowerCase();
     a.dataset.tag   = g.tag;
     a.innerHTML = `
-      <div class="card-thumb-placeholder" style="background:${g.gradient}">
-        <span style="font-size:3rem">${g.emoji}</span>
-      </div>
+      <img
+        class="card-thumb"
+        src="${g.id}.png"
+        alt="${g.title}"
+        loading="lazy"
+        onerror="this.style.background='#1a1f36';this.removeAttribute('src')"
+      />
       <div class="card-overlay">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <svg fill="none" viewBox="0 0 24 24" stroke="none">
           <polygon points="5,3 19,12 5,21" fill="currentColor"/>
         </svg>
       </div>
@@ -505,10 +272,7 @@
     GAMES.forEach(g => {
       const matchTag   = activeFilter === 'all' || g.tag === activeFilter;
       const matchQuery = !q || g.title.toLowerCase().includes(q) || g.tag.includes(q);
-      if (matchTag && matchQuery) {
-        grid.appendChild(buildCard(g));
-        count++;
-      }
+      if (matchTag && matchQuery) { grid.appendChild(buildCard(g)); count++; }
     });
     empty.style.display = count === 0 ? 'block' : 'none';
   }
@@ -523,7 +287,6 @@
   });
 
   search.addEventListener('input', render);
-
   render();
 </script>
 </body>
